@@ -23,6 +23,14 @@ function App() {
     ])
   }
 
+  //Eliminar Usuarios
+  const deleteUser= (id) =>{
+    //Filtramos todos los usuarios menos el que queremos eliminar
+    const arrayFiltrado = users.filter(user => user.id!= id); 
+    //Nos quedamos con todos los usuarios excepto el que queremos eliminar
+    setUsers(arrayFiltrado)
+  }
+
   return (
     <div className="container">
       <h1>CRUD App with Hooks</h1>
@@ -33,7 +41,7 @@ function App() {
         </div>
         <div className="flex-large">
           <h2>View users</h2>
-          <UserTable users={users} />
+          <UserTable users={users} deleteUser={deleteUser} />
         </div>
       </div>
     </div>
